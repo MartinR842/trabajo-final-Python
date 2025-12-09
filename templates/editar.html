@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/stayleEditar.css">
+    <title>Editar datos</title>
+</head>
+<body>
+    <h1>Pagina para Editar</h1>
+    <form action="" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" value="{{ soc.nombre }}"required>
+        
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" value="{{ soc.apellido }}"required>
+        
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" value="{{ soc.edad }}"required>
+        
+        <label for="telefono">Telefono</label>
+        <input type="text" name="telefono" id="telefono" value="{{ soc.telefono }}"required>
+        
+        <label for="mail">Mail</label>
+        <input type="email" name="mail" id="mail" value="{{ soc.mail }}"required>
+        
+        <label for="actividad">Actividad</label>
+        <input type="text" name="actividad" id="actividad" value="{{ soc.actividad }}"required>
+        
+
+        <button type="submit">Editar Registro.</button>
+    </form>
+    <a href="/ver">Ver Lista</a>
+    
+    <a href="/">Volver</a>
+</body>
+</html>

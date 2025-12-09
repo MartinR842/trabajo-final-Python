@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleLista.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <title>Listado</title>
+</head>
+<body>
+    <h1>Listado de Socios Registrados.</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th >Edad</th>
+            <th >Telefono</th>
+            <th>Mail</th>
+            <th>Actividad</th>
+        </tr>
+        {% for soc in socios %}
+        <tr>
+            <td>{{ soc.nombre }}</td>
+            <td>{{ soc.apellido }}</td>
+            <td class="numero">
+                {{ soc.edad }}
+                {% if soc.edad > 40 %}
+                    (adulto)
+                {% endif %}
+            </td>
+            <td class="numero">{{ soc.telefono }}</td>
+            <td>{{ soc.mail }}</td>
+            <td>{{ soc.actividad }}
+                {% if (soc.actividad | lower | trim) == "crossfit" %}
+                    <i class="bi bi-person-arms-up"></i>
+                {% endif %}               
+            </td>
+            <td class="boton-editar-eliminar">
+                <a href="/editar/{{ soc.id }}" class="editar" title="Editar">
+                     <i class="bi bi-pencil-square"></i>
+                </a>
+            </td>
+            <td class="boton-editar-eliminar">
+                <a href="/eliminar/{{ soc.id }}" class="eliminar" title="Eliminar" onclick="return confirm('¿Seguro que desea eliminar?');">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </td>            
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="volver" href="/">Volver</a>
+</body>
+</html>

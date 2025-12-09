@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleAgregar.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Alta del Socio.</h1>
+    {% with mensajes= get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+    <ul>
+    {% for categoria, mensaje in mensajes %}
+        <li class="alerta {{ categoria }}">{{ mensaje }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form action="" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" required>
+
+        <label for="telefono">Telefono</label>
+        <input type="number" id="telefono" name="telefono" required>
+
+        <label for="mail">Mail</label>
+        <input type="email" id="mail" name="mail" required>
+
+        <label for="actividad">Actividad</label>
+        <input type="text" id="actividad" name="actividad" required>
+
+        <button type="submit">Enviar regitro</button>
+    </form>
+    <a href="/">Volver</a>
+</body>
+</html>
